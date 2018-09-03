@@ -1,2 +1,3 @@
-# csc416.github.io
-Course page for CSc-416 Artificial Intelligence taught by Prof. Craig Graci at SUNY Oswego in Fall 2018
+# cogsci316.github.io
+
+Course website for COG 316 - Cognitive Musicology, taught by Professor Craig Graci during the Spring 2018 semester at SUNY Oswego

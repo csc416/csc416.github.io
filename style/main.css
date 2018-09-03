@@ -1,0 +1,80 @@
+header {
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+h1 {
+    font-family: 'Baloo Paaji', cursive;
+}
+
+hr {
+    width: 10%;
+    margin-top: -1em;
+}
+
+h3 {
+    font-family: 'Rammetto One', cursive;
+}
+
+main {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main div {
+    text-align: center;
+    flex-basis: 400px;
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+main .left {
+    background-color: #cfd8dc;
+}
+
+main .middle {
+    background-color: #d7ccc8;
+}
+
+main .right {
+    background-color: #bbdefb;
+}
+
+div ul {
+    text-align: left;
+}
+
+div ul li {
+    list-style-type: none;
+    color: #000;
+}
+
+.right ul li, audio {
+    margin-top: 0.5em;
+}
+
+a {
+    color: #000;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+.left p {
+    text-align: left;
+    margin-left: 0.5em;
+}
+
+audio {
+    margin-top: 0.5em;
+    width: 200px;
+}
+
+.songName {
+    display: block;
+    font-size: 12px;
+    margin-left: 60px;
+    margin-top: 0.5em;
+}
