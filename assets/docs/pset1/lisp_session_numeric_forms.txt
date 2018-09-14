@@ -1,0 +1,68 @@
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.49 (2010-07-07) <http://clisp.cons.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2010
+
+Type :h and hit Enter for context help.
+
+[1]> (+ 1 2 3 4 5)
+
+15
+[2]> (/ (* 4 5) 2)
+
+10
+[3]> ; empty lists get treated as if it were filled with 1s 
+(*)
+1
+[4]> (+ 9 8 7)
+
+24
+[5]> (- 10 40)
+
+-30
+
+[6]> (/ 1 2 3)
+
+1/6
+[7]> (mod 8 3)
+
+2
+
+[8]> (sqrt 9)
+
+3
+[9]> (expt 2 8)
+
+256
+[10]> ; some nested expressions
+(* pi (expt 15 2))
+
+
+508.93800988154650464L0
+[11]> (* pi (expt (- 9 7) (+ 6 2)))
+
+804.24771931898706906L0
+[12]> ; nested expressions with variables
+(setf side-a 10)
+
+10
+[13]> (setf side-b 20)
+
+20
+[14]> (setf hypotenuse (sqrt (- (expt side-a 2) (expt side-b 2)))
+
+#C(0 17.320509)
+[15]> (bye)
+
+Bye.

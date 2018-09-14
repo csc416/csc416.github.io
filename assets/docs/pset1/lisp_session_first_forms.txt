@@ -1,0 +1,110 @@
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.49 (2010-07-07) <http://clisp.cons.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2010
+
+Type :h and hit Enter for context help.
+
+[1]> "Strings in LISP"
+
+"Strings in LISP"
+[2]> 87654321
+87654321
+[3]> pi
+
+3.1415926535897932385L0
+[4]> pie
+
+*** - SYSTEM::READ-EVAL-PRINT: variable PIE has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of PIE.
+STORE-VALUE    :R2      Input a new value for PIE.
+ABORT          :R3      Abort main loop
+Break 1 [5]> :a
+
+[5]> (+ 1 2 3 4 5 6)
+
+21
+[6]> (* (1 2 3) (- 9 2))
+
+*** - EVAL: 1 is not a function name; try using a symbol instead
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead.
+ABORT          :R2      Abort main loop
+
+[7]> (+ (* 1 2 3) (- 9 2))
+
+13
+[8]> (double 9)
+
+*** - EVAL: undefined function DOUBLE
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'DOUBLE).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'DOUBLE).
+ABORT          :R4      Abort main loop
+Break 1 [11]> :a
+
+[9]> (quote pie)
+
+PIE
+[10]> (quote (double 9))
+
+(DOUBLE 9)
+[11]> (quote (+ 1 2))
+
+(+ 1 2)
+[12]> (quote (anything))
+
+(ANYTHING)
+[13]> 'pie
+
+PIE
+[14]> '(double 9)
+
+(DOUBLE 9)
+[15]> (setf pie 'tasty)
+
+TASTY
+[16]> pie
+
+TASTY
+[17]> (setf age 19)
+
+19
+[18]> age
+
+19
+[19]> (defun triple (arg) (* arg 3))
+
+TRIPLE
+[20]> (triple 2)
+
+6
+[21]> (triple age)
+
+57
+[22]> (double pie)
+
+*** - *: TASTY is not a number
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead.
+ABORT          :R2      Abort main loop
+
+[23]> (triple (triple age))
+
+171
+[24]> (bye)
+
+Bye.
