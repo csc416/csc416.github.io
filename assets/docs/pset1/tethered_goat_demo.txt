@@ -17,22 +17,20 @@ Copyright (c) Sam Steingold, Bruno Haible 2001-2010
 Type :h and hit Enter for context help.
 
 [1]> (load "tethered_goat_solution")
-;; Loading file /Users/dorrondel/Documents/oswego/Fall18-VII/csc416.github.io/tethered_goat_solution.cl ...
-;; Loaded file /Users/dorrondel/Documents/oswego/Fall18-VII/csc416.github.io/tethered_goat_solution.cl
+;; Loading file /Users/dorrondel/Documents/oswego/Fall18-VII/csc416.github.io/assets/docs/code/a1/tethered_goat_solution.cl...
+;; Loaded file /Users/dorrondel/Documents/oswego/Fall18-VII/csc416.github.io/assets/docs/code/a1/tethered_goat_solution.cl
 T
 [2]> side-a
 100
 [3]> side-b
 70
-[4]> rope-length
+[4]> radius
 107
 [5]> barn-area
 7000
-[6]> rope-radius
-107/2
-[7]> rope-area
-8992.023572737385697L0
-[8]> goat-area
-1992.0235727373856971L0
-[9]> (bye)
+[6]> rope-area
+35968.09429094954279L0
+[7]> goat-area
+28968.094290949542788L0
+[8]> (bye)
 Bye.
