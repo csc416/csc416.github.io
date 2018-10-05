@@ -1,0 +1,48 @@
+[1]> (load "lp.l")
+;; Loading file lp.l ...
+;; Loaded file lp.l
+T
+[2]> (filter-in '(<= 6) '(1 4 7 8 4 2 3))
+(1 4 4 2 3)
+[3]> (filter-in '(\= 4) '(1 4 7 8 4 2 3))
+(1 7 8 2 3)
+[4]> (filter-in '(>= 5) '(1 2 3 4 5 6 7 8))
+(5 6 7 8)
+[5]> (trace filter-in)
+;; Tracing function FILTER-IN.
+(FILTER-IN)
+[6]> (filter-in '(not (< 7)) '(1 2 3 9))
+1. Trace: (FILTER-IN '(NOT (< 3)) '(1 2 3 9))
+2. Trace: (FILTER-IN '(NOT (< 3)) '(2 3 9))
+3. Trace: (FILTER-IN '(NOT (< 3)) '(3 9))
+4. Trace: (FILTER-IN '(NOT (< 3)) '(9))
+5. Trace: (FILTER-IN '(NOT (< 3)) 'NIL)
+5. Trace: FILTER-IN ==> NIL
+4. Trace: FILTER-IN ==> (9)
+3. Trace: FILTER-IN ==> (9)
+2. Trace: FILTER-IN ==> (9)
+1. Trace: FILTER-IN ==> (9)
+(4)
+[7]> (filter-out '(<= 6) '(1 4 7 8 4 2 3))
+(7 8)
+[8]> (filter-out '(\= 4) '(1 4 7 8 4 2 3))
+(4 4)
+[9]> (filter-out '(>= 5) '(1 2 3 4 5 6 7 8))
+(1 2 3 4)
+[10]> (trace filter-out)
+;; Tracing function FILTER-OUT.
+(FILTER-OUT)
+[11]> (filter-out '(not (< 7)) '(1 2 3 9))
+1. Trace: (FILTER-IN '(NOT (< 3)) '(1 2 3 9))
+2. Trace: (FILTER-IN '(NOT (< 3)) '(2 3 9))
+3. Trace: (FILTER-IN '(NOT (< 3)) '(3 9))
+4. Trace: (FILTER-IN '(NOT (< 3)) '(9))
+5. Trace: (FILTER-IN '(NOT (< 3)) 'NIL)
+5. Trace: FILTER-OUT ==> NIL
+4. Trace: FILTER-OUT ==> NIL
+3. Trace: FILTER-OUT ==> (3)
+2. Trace: FILTER-OUT ==> (2 3)
+1. Trace: FILTER-OUT ==> (1 2 3)
+(1 2 3)
+[12]> (bye)
+Bye.

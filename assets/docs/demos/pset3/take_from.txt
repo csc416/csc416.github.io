@@ -1,0 +1,39 @@
+[1]> (load "lp")
+;; Loading file lp.cl ...
+;; Loaded file lp.cl
+T
+[2]> (take-from 4 '(4 5 4 3 2))
+(5 3 2)
+[3]> (take-from 'A '(A B V D S L A))
+(B V D S L)
+[4]> (take-from 2 '(2 2 2 3))
+(3)
+[5]> (trace take-from)
+;; Tracing function TAKE-FROM.
+(TAKE-FROM)
+[6]> (take-from 'CS '(cs cogsci bio chem math anthro cs psych spa cs))
+1. Trace: (TAKE-FROM 'CS '(CS COGSCI BIO CHEM MATH ANTHRO CS PSYCH SPA CS))
+2. Trace: (TAKE-FROM 'CS '(COGSCI BIO CHEM MATH ANTHRO CS PSYCH SPA CS))
+3. Trace: (TAKE-FROM 'CS '(BIO CHEM MATH ANTHRO CS PSYCH SPA CS))
+4. Trace: (TAKE-FROM 'CS '(CHEM MATH ANTHRO CS PSYCH SPA CS))
+5. Trace: (TAKE-FROM 'CS '(MATH ANTHRO CS PSYCH SPA CS))
+6. Trace: (TAKE-FROM 'CS '(ANTHRO CS PSYCH SPA CS))
+7. Trace: (TAKE-FROM 'CS '(CS PSYCH SPA CS))
+8. Trace: (TAKE-FROM 'CS '(PSYCH SPA CS))
+9. Trace: (TAKE-FROM 'CS '(SPA CS))
+10. Trace: (TAKE-FROM 'CS '(CS))
+11. Trace: (TAKE-FROM 'CS 'NIL)
+11. Trace: TAKE-FROM ==> NIL
+10. Trace: TAKE-FROM ==> NIL
+9. Trace: TAKE-FROM ==> (SPA)
+8. Trace: TAKE-FROM ==> (PSYCH SPA)
+7. Trace: TAKE-FROM ==> (PSYCH SPA)
+6. Trace: TAKE-FROM ==> (ANTHRO PSYCH SPA)
+5. Trace: TAKE-FROM ==> (MATH ANTHRO PSYCH SPA)
+4. Trace: TAKE-FROM ==> (CHEM MATH ANTHRO PSYCH SPA)
+3. Trace: TAKE-FROM ==> (BIO CHEM MATH ANTHRO PSYCH SPA)
+2. Trace: TAKE-FROM ==> (COGSCI BIO CHEM MATH ANTHRO PSYCH SPA)
+1. Trace: TAKE-FROM ==> (COGSCI BIO CHEM MATH ANTHRO PSYCH SPA)
+(COGSCI BIO CHEM MATH ANTHRO PSYCH SPA)
+[7]> (bye)
+Bye.

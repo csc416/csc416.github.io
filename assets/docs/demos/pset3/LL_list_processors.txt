@@ -1,0 +1,120 @@
+[1]> (load "lp")
+;; Loading file lp.cl ...
+;; Loaded file lp.cl
+T
+[2]> (singleton-p '())
+NIL
+[3]> (singleton-p '(1))
+T
+[4]> (singleton-p '(1 2))
+NIL
+[5]> (singleton-p '(1 2 f u 3 4 x))
+NIL
+[6]> (trace rac)
+;; Tracing function RAC.
+(RAC)
+[7]> (rac '(1))
+1. Trace: (RAC '(1))
+1. Trace: RAC ==> 1
+A
+[8]> (rac '(1 2 3 5))
+1. Trace: (RAC '(1 2 3 5))
+2. Trace: (RAC '(2 3 5))
+3. Trace: (RAC '(3 5))
+4. Trace: (RAC '(5))
+4. Trace: RAC ==> 5
+3. Trace: RAC ==> 5
+2. Trace: RAC ==> 5
+1. Trace: RAC ==> 5
+5
+[9]> (trace rdc)
+;; Tracing function RDC.
+(RDC)
+[10]> (rdc '(1))
+1. Trace: (RDC '(1))
+1. Trace: RDC ==> NIL
+NIL
+[11]> (rdc '(1 2 3 5 6))
+1. Trace: (RDC '(1 2 3 5 6))
+2. Trace: (RDC '(2 3 5 6))
+3. Trace: (RDC '(3 5 6))
+4. Trace: (RDC '(5 6))
+5. Trace: (RDC '(6))
+5. Trace: RDC ==> NIL
+4. Trace: RDC ==> (5)
+3. Trace: RDC ==> (3 5)
+2. Trace: RDC ==> (2 3 5)
+1. Trace: RDC ==> (1 2 3 5)
+(1 2 3 5)
+[12]> (untrace rac)
+(RAC)
+[13]> (untrace rdc)
+(RDC)
+[14]> (trace snoc)
+;; Tracing function SNOC.
+(SNOC)
+[15]> (snoc 'BLUE '())
+1. Trace: (SNOC 'BLUE 'NIL)
+1. Trace: SNOC ==> (BLUE)
+(BLUE)
+[16]> (snoc 'BLUE '(RED))
+1. Trace: (SNOC 'BLUE '(RED))
+2. Trace: (SNOC 'BLUE 'NIL)
+2. Trace: SNOC ==> (BLUE)
+1. Trace: SNOC ==> (RED BLUE)
+(RED BLUE)
+[17]> (snoc 'BLUE '(NAVY MARINE TEAL SKY))
+1. Trace: (SNOC 'BLUE '(NAVY MARINE TEAL SKY))
+2. Trace: (SNOC 'BLUE '(MARINE TEAL SKY))
+3. Trace: (SNOC 'BLUE '(TEAL SKY))
+4. Trace: (SNOC 'BLUE '(SKY))
+5. Trace: (SNOC 'BLUE 'NIL)
+5. Trace: SNOC ==> (BLUE)
+4. Trace: SNOC ==> (SKY BLUE)
+3. Trace: SNOC ==> (TEAL SKY BLUE)
+2. Trace: SNOC ==> (MARINE TEAL SKY BLUE)
+1. Trace: SNOC ==> (NAVY MARINE TEAL SKY BLUE)
+(NAVY MARINE TEAL SKY BLUE)
+[18]> (untrace snoc)
+(SNOC)
+[19]> (trace palindrome-p)
+;; Tracing function PALINDROME-P.
+(PALINDROME-P)
+[20]> (palindrome-p '())
+1. Trace: (PALINDROME-P 'NIL)
+1. Trace: PALINDROME-P ==> T
+T
+[21]> (palindrome-p '(PALINDROME))
+1. Trace: (PALINDROME-P '(PALINDROME))
+1. Trace: PALINDROME-P ==> T
+T
+[22]> (palindrome-p '(CLOS SLOC))
+1. Trace: (PALINDROME-P '(CLOS SLOC))
+1. Trace: PALINDROME-P ==> NIL
+NIL
+[23]> (palindrome-p '(FOOD DRINK FOOD))
+1. Trace: (PALINDROME-P '(FOOD DRINK FOOD))
+2. Trace: (PALINDROME-P '(DRINK))
+2. Trace: PALINDROME-P ==> T
+1. Trace: PALINDROME-P ==> T
+T
+[24]> (palindrome-p '(1 2 3 4 5 4 2 3 1))
+1. Trace: (PALINDROME-P '(1 2 3 4 5 4 2 3 1))
+2. Trace: (PALINDROME-P '(2 3 4 5 4 2 3))
+2. Trace: PALINDROME-P ==> NIL
+1. Trace: PALINDROME-P ==> NIL
+NIL
+[25]> (palindrome-p '(HEY HEY MY MY MY MY HEY HEY))
+1. Trace: (PALINDROME-P '(HEY HEY MY MY MY MY HEY HEY))
+2. Trace: (PALINDROME-P '(HEY MY MY MY MY HEY))
+3. Trace: (PALINDROME-P '(MY MY MY MY))
+4. Trace: (PALINDROME-P '(MY MY))
+5. Trace: (PALINDROME-P 'NIL)
+5. Trace: PALINDROME-P ==> T
+4. Trace: PALINDROME-P ==> T
+3. Trace: PALINDROME-P ==> T
+2. Trace: PALINDROME-P ==> T
+1. Trace: PALINDROME-P ==> T
+T
+[26]> (bye)
+Bye.

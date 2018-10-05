@@ -1,0 +1,28 @@
+[1]> (load "lp")
+;; Loading file lp.cl ...
+;; Loaded file lp.cl
+T
+[2]> (trace factorial)
+;; Tracing function FACTORIAL.
+(FACTORIAL)
+[3]> (trace power)
+;; Tracing function POWER.
+(POWER)
+[4]> (factorial 5)
+1. Trace: (FACTORIAL '5)
+1. Trace: FACTORIAL ==> 120
+120
+[5]> (factorial 10)
+1. Trace: (FACTORIAL '10)
+1. Trace: FACTORIAL ==> 3628800
+3628800
+[6]> (power 2 16)
+1. Trace: (POWER '2 '16)
+1. Trace: POWER ==> 65536
+65536
+[7]> (power 5 6)
+1. Trace: (POWER '5 '6)
+1. Trace: POWER ==> 15625
+15625
+[8]> (bye)
+Bye.
