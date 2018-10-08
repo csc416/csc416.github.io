@@ -2,6 +2,13 @@ main .a1 .indented,
 main .a2 .indented {
   margin-left: 5em;
 }
+main .a1 {
+  margin-left: 1em;
+}
 ul {
   list-style-type: none;
+}
+
+.textt {
+  width: 60%;
 }
