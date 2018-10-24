@@ -1,0 +1,93 @@
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.49 (2010-07-07) <http://clisp.cons.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2010
+
+Type :h and hit Enter for context help.
+
+[1]> (load "mc")
+;; Loading file /Users/dorrondel/Documents/oswego/Fall18-VII/CSc-416/a5/mc.cl ...
+;; Loaded file /Users/dorrondel/Documents/oswego/Fall18-VII/CSc-416/a5/mc.cl
+T
+[2]> (mc)
+*left-bank*       (M M M C C C B)
+*right-bank*       NIL
+( m b )
+*left-bank*       (M M C C C)
+*right-bank*       (B M)
+Yummy yummy yummy, I got Good in mt tummy!!
+NIL
+[3]> (mc)
+*left-bank*       (M M M C C C B)
+*right-bank*       NIL
+( m c b )
+*left-bank*       (M M C C)
+*right-bank*       (B C M)
+( c c b )
+move inapplicable
+NIL
+[4]> (mc)
+*left-bank*       (M M M C C C B)
+*right-bank*       NIL
+(C C B)
+*left-bank*       (M M M C)
+*right-bank*       (B C C)
+(C B)
+*left-bank*       (B C M M M C)
+*right-bank*       (C)
+(C C B)
+*left-bank*       (M M M)
+*right-bank*       (B C C C)
+(C B)
+*left-bank*       (B C M M M)
+*right-bank*       (C C)
+(M M B)
+*left-bank*       (C M)
+*right-bank*       (B M M C C)
+(C M B)
+*left-bank*       (B M C C M)
+*right-bank*       (M C)
+(M M B)
+*left-bank*       (C C)
+*right-bank*       (B M M M C)
+(C B)
+*left-bank*       (B C C C)
+*right-bank*       (M M M)
+(C C B)
+*left-bank*       (C)
+*right-bank*       (B C C M M M)
+(C B)
+*left-bank*       (B C C)
+*right-bank*       (C M M M)
+(C C B)
+*left-bank*       NIL
+*right-bank*       (B C C C M M M)
+good work!
+NIL
+[5]> (display-solution)
+
+"(C C B)"
+"(C B)"
+"(C C B)"
+"(C B)"
+"(M M B)"
+"(C M B)"
+"(M M B)"
+"(C B)"
+"(C C B)"
+"(C B)"
+"(C C B)"
+"(C C B)"
+[6]> (bye)
+Bye.
