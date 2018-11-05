@@ -26,9 +26,9 @@
 
 ( defclass bank ()
     (
-        ( missionaries :accesor bank-missionaries :initarg :missionaries )
-        ( cannibals :accesor bank-cannibals :initarg :cannibals )
-        ( boat :accesor bank-boat :initarg :boat )
+        ( missionaries :accessor bank-missionaries :initarg :missionaries )
+        ( cannibals :accessor bank-cannibals :initarg :cannibals )
+        ( boat :accessor bank-boat :initarg :boat )
     )
 )
 
@@ -37,8 +37,8 @@
 
 ( defclass state ()
     (
-        ( left-bank :accesor state-left-bank :initarg :left-bank )
-        ( right-bank :accesor state-right-bank :initarg :right-bank )
+        ( left-bank :accessor state-left-bank :initarg :left-bank )
+        ( right-bank :accessor state-right-bank :initarg :right-bank )
     )
 )
 
@@ -53,10 +53,10 @@
 
 ( defclass node ()
     (
-        ( name :accesor node-name :initarg :name)
-        ( state :accesor node-state :initarg :state)
-        ( parent :accesor node-parent :initarg :parent)
-        ( operator :accesor node-operator :initarg :operator)
+        ( name :accessor node-name :initarg :name)
+        ( state :accessor node-state :initarg :state)
+        ( parent :accessor node-parent :initarg :parent)
+        ( operator :accessor node-operator :initarg :operator)
     )
 )
 
@@ -78,9 +78,9 @@
 
 ( defclass operator () 
     (
-        ( name :accesor operator-name :initarg :name)
-        ( precondition :accesor operator-precondition :initarg :precondition)
-        ( description :accesor operator-description :initarg :description)
+        ( name :accessor operator-name :initarg :name)
+        ( precondition :accessor operator-precondition :initarg :precondition)
+        ( description :accessor operator-description :initarg :description)
     )
 )
 
@@ -89,8 +89,8 @@
 ; Modelling a name-generator
 
 ( defclass name-generator () 
-    ( ( prefix :accesor name-generator-prefix :initarg :prefix :initform "name" )
-      ( nr :accesor name-generator-nr :initform 0 )
+    ( ( prefix :accessor name-generator-prefix :initarg :prefix :initform "name" )
+      ( nr :accessor name-generator-nr :initform 0 )
     )
 )
 
@@ -116,16 +116,17 @@
 
 ( defmethod setup ( &aux root lb rb istate) 
   ;; establish root node
-  ( setf lb ( make-instance 'bank :missionaries '(m m m) :cannibals '(c c c) 'boat 'b ) )
-  ( setf rb ( make-instance 'bank :missionaries '() :cannibals '() 'boat nil ) )
+  ( setf lb ( make-instance 'bank :missionaries '(m m m) :cannibals '(c c c) :boat 'b ) )
+  ( setf rb ( make-instance 'bank :missionaries '() :cannibals '() :boat nil ) )
   ( setf istate ( make-instance 'state :left-bank lb :right-bank rb ) )
-  ( setf root ( make-instance 'node  :state istate :name "root" ) )
+  ( setf root ( make-instance 'node  :state istate :name "root") )
   ;; initialize list of unexplored nodes
   ( setf *unexplored* ( list root ) )
   ;; initialize list of explored nodes
   ( setf *explored* () )
   ;; get ready to create good names
   ( setf *ng* ( make-instance 'name-generator :prefix "N" ) )
+  ( setf *trace-search* t)
 )
 
 ;----------------------------
@@ -135,8 +136,8 @@
     ( if *trace-search* 
         ( let ()
             ( terpri ) ( write-line ">> Solve")
-            ( display-unexplored-nodes )
             ( display-explored-nodes )
+            ( display-unexplored-nodes )
         )
     )
     ( cond
@@ -166,19 +167,4 @@
         )
     )
     NIL
-)
-
-;----------------------------
-; generating children
-
-;( defmethod childen-of ( ( e-node node ) &aux kids )
-;)
-
-( defmethod child-of ( ( n node ) ( o operator ) &aux c )
-    ( setf new-node ( make-instance 'node ) )
-    ( setf ( node-name new-node ) ( next *ng* ) )
-    ( setf ( node-parent new-node ) n )
-    ( setf ( node-operator new-node ) o )
-    ( setf c ( copy-state ( node-state n ) ) )
-    new-node
 )
