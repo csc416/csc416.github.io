@@ -45,6 +45,7 @@
 ( defmethod display ( ( s state ) ) 
     ( display ( state-left-bank s ) )
     ( display ( state-right-bank s ) )
+    (terpri)
     nil
 )
 
@@ -85,7 +86,7 @@
 )
 
 
-;----------------------------
+;; ;----------------------------
 ; Modelling a name-generator
 
 ( defclass name-generator () 
@@ -126,7 +127,6 @@
   ( setf *explored* () )
   ;; get ready to create good names
   ( setf *ng* ( make-instance 'name-generator :prefix "N" ) )
-  ( setf *trace-search* t)
 )
 
 ;----------------------------
@@ -154,7 +154,7 @@
     )
     ( cond 
         ( ( goalp ( node-state e-node ) ) 
-            ( display-e-node e-node )
+            ( display-solution e-node )
         )
         ( ( exploredp e-node )
             ( solve )
@@ -167,4 +167,15 @@
         )
     )
     NIL
+)
+
+( defmethod child-of ( ( n node ) ( o operator ) &aux c )
+    ( setf new-node (make-instance 'node) )
+    ( setf ( node-name new-node ) ( next *ng* ) )
+    ( setf ( node-parent new-node ) n)
+    ( setf ( node-operator new-node ) o)
+    ( setf c ( copy-state ( node-state n ) ) )
+    ( apply-operator o c )
+    ( setf (node-state new-node) c )
+    new-node
 )
