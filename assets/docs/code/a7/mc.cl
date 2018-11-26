@@ -7,6 +7,7 @@
 
 (setf *trace-search* t)
 
+; Outputs formatted string state of bank
 (defmethod display ((b bank))
     (format t "MISSIONARIES: ~A  CANNIBALS: ~A  BOAT: ~A" 
         (bank-missionaries b) 
@@ -15,6 +16,7 @@
     )
 )
 
+; Returns copy of instance of a bank
 (defmethod copy-bank ((b bank))
     (make-instance 'bank
         :missionaries (bank-missionaries b)
@@ -23,6 +25,7 @@
     )
 )
 
+; T if banks equal NIL otherwise
 (defmethod equal-bank-p ((b1 bank) (b2 bank))
     (and
         (equal (bank-missionaries b1) (bank-missionaries b2))
@@ -31,6 +34,7 @@
     )
 )
 
+; T if bank empty NIL otherwise
 (defmethod bank-empty-p ((b bank))
     (and
         (null (bank-missionaries b))
@@ -39,31 +43,22 @@
     )
 )
 
+; Returns amount of missionaries in given bank
 (defmethod m-count ((b bank))
     (length (bank-missionaries b))
 )
 
+; Returns amount of cannibals in given bank
 (defmethod c-count ((b bank))
     (length (bank-cannibals b))
 )
 
+; T if bank contains boat NIL otherwise
 (defmethod contains-boat-p ((b bank))
     (not (null (bank-boat b)))
 )
 
-(defmethod toggle-boat ((s state))
-    (cond 
-        ((contains-boat-p (state-left-bank s))
-            (setf (bank-boat (state-left-bank s)) nil)
-            (setf (bank-boat (state-right-bank s)) 'b)
-        )
-        ((contains-boat-p (state-right-bank s))
-            (setf (bank-boat (state-right-bank s)) nil)
-            (setf (bank-boat (state-left-bank s)) 'b)
-        )
-    )
-)
-
+; Returns copy of state parameter
 (defmethod copy-state ((s state))
     (make-instance 'state 
         :left-bank (copy-bank (state-left-bank s))
@@ -71,14 +66,15 @@
     )
 )
 
-(defmethod equal-state-p ((s1 state)(s2 state))
+; T if states identical NIL otherwise
+(defmethod equal-state-p ((s1 state) (s2 state))
     (and
         (equal-bank-p (state-left-bank s1) (state-left-bank s2))
         (equal-bank-p (state-right-bank s1) (state-right-bank s2))
     )
 )
 
-
+; T if goal state reached NIL otherwise
 (defmethod goalp ((s state))
     (and
         (equal-bank-p (state-left-bank s) (make-instance 'bank :missionaries '() :cannibals '() :boat nil))
@@ -86,7 +82,8 @@
     )
 )
 
-(defmethod feast-state-p ((s state) &aux lb rb)
+; T if feast state reached NIL otherwise
+(defmethod feast-state-p ((s state))
     (setf lb (state-left-bank s))
     (setf rb (state-right-bank s))
     (or
@@ -101,18 +98,17 @@
     )
 )
 
+; T if root node reached NIL otherwise
 (defmethod rootp ((n node))
     (equal (node-name n) "root")
 )
 
-(defmethod display ((op operator))
-   (princ (operator-name op))
-)
-
+; T if node previously traversed NIL otherwise
 (defmethod exploredp ((n node))
     (member-node-p n *explored*)
 )
 
+; T if node member of list parameter NIL otherwise
 (defmethod member-node-p ((n node) (l list)) 
     (cond 
         ((null l) nil)
@@ -123,10 +119,17 @@
     )
 )
 
+; T if nodes identical NIL otherwise
 (defmethod equal-node-p ((n1 node) (n2 node))
     (equal-state-p (node-state n1) (node-state n2))
 )
 
+; Outputs name of operator applied
+(defmethod display ((op operator))
+   (princ (operator-name op))
+)
+
+; binds global variables to the 10 different state space operator instances
 (defmethod establish-operators ()
     (setf *move-2m-r*
         (make-instance 'operator
@@ -215,6 +218,7 @@
     nil
 )
 
+; Output current node
 (defmethod display-e-node ((n node))
     (princ "======CURRENT NODE======")
     (terpri)
@@ -222,7 +226,7 @@
     nil
 )
 
-
+; Output traversed nodes
 (defmethod display-explored-nodes ()
     (terpri)
     (princ "======EXPLORED======")
@@ -232,6 +236,7 @@
     nil
 )
 
+; Output non-traversed nodes
 (defmethod display-unexplored-nodes ()
     (terpri)
     (princ "======UNEXPLORED======")
@@ -241,6 +246,7 @@
     nil
 )
 
+; T if state space operator permitted in given state NIL otherwise
 (defmethod applicablep ((op operator) (s state))
     (cond
         ((eq (operator-name op) 'move-2m-r)
@@ -276,6 +282,7 @@
     )
 )
 
+; T if can move 2 missionaries right else NIL
 (defmethod applicable-move-2m-r ((s state))
     (and
         (> (m-count (state-left-bank s)) 1) 
@@ -283,6 +290,7 @@
     )
 )
 
+; T if can move 2 missionaries left else NIL
 (defmethod applicable-move-2m-l ((s state))
     (and
         (> (m-count (state-right-bank s)) 1) 
@@ -290,6 +298,7 @@
     )
 )
 
+; T if can move 2 cannibals right else NIL
 (defmethod applicable-move-2c-r ((s state))
     (and  
         (> (c-count (state-left-bank s)) 1) 
@@ -297,6 +306,7 @@
     )
 )
 
+; T if can move 2 cannibals left else NIL
 (defmethod applicable-move-2c-l ((s state))
     (and
         (> (c-count (state-right-bank s)) 1) 
@@ -304,12 +314,14 @@
     )
 )
 
+; T if you can move one missionary and one cannibal right NIL otherwise
 (defmethod applicable-move-1mc-r ((s state))
     (> (c-count (state-left-bank s)) 0) 
     (> (m-count (state-left-bank s)) 0) 
     (contains-boat-p (state-left-bank s))
 )
 
+; T if you can move one missionary and one cannibal left NIL otherwise
 (defmethod applicable-move-1mc-l ((s state))
     (and
         (> (c-count (state-right-bank s)) 0) 
@@ -318,6 +330,7 @@
     )
 )
 
+; T if you can move one missionary right NIL otherwise
 (defmethod applicable-move-1m-r ((s state))
     (and
         ; have m to move
@@ -326,6 +339,7 @@
     )
 )
 
+; T if you can move one missionary left NIL otherwise
 (defmethod applicable-move-1m-l ((s state))
     (and
         (> (m-count (state-right-bank s)) 0) 
@@ -333,7 +347,7 @@
     )
 )
 
-
+; T if you can move one cannibal right NIL otherwise
 (defmethod applicable-move-1c-r ((s state))
     (and
         (> (c-count (state-left-bank s)) 0) 
@@ -341,6 +355,7 @@
     )
 )
 
+; T if you can move one cannibal left NIL otherwise
 (defmethod applicable-move-1c-l ((s state))
     (and
         (> (c-count (state-right-bank s)) 0) 
@@ -348,6 +363,8 @@
     )
 )
 
+; Returns list of children nodes for a given node based off applicable operators
+; to that node's state
 (defmethod find-applicable-nodes ((e-node node) &aux node-list)
     (if (applicablep *move-2m-r* (node-state e-node))
         (push (child-of e-node *move-2m-r*) node-list)
@@ -382,146 +399,147 @@
     node-list
 )
 
-
+; Finds children nodes for valid node states
 (defmethod children-of ((e-node node) &aux kids)
- (when (not (feast-state-p (node-state e-node)))
-    (setf kids (find-applicable-nodes e-node))
- )
- kids
+    (when (not (feast-state-p (node-state e-node)))
+        (setf kids (find-applicable-nodes e-node))
+    )
+    kids
 )
 
+; Actually applies operator to application's internal state
 (defmethod apply-operator ((o operator) (c state))
     (setf bank-left (state-left-bank c))
     (setf bank-right (state-right-bank c))
     (cond
         ((eq (operator-name o) 'move-2m-r)
-            (setf *m1* (bank-missionaries bank-left)) 
-            (pop *m1*) (pop *m1*)
-            (setf (bank-missionaries bank-left) *m1*)
+            (setf m-group-one (bank-missionaries bank-left)) 
+            (pop m-group-one) (pop m-group-one)
+            (setf (bank-missionaries bank-left) m-group-one)
 
-            (setf *m2* (bank-missionaries bank-right)) 
-            (push 'm *m2*) (push 'm *m2*)
-            (setf (bank-missionaries bank-right) *m2*)
+            (setf m-group-two (bank-missionaries bank-right)) 
+            (push 'm m-group-two) (push 'm m-group-two)
+            (setf (bank-missionaries bank-right) m-group-two)
             
             (setf (bank-boat bank-left) nil)
             (setf (bank-boat bank-right) 'b)
         )
         ((eq (operator-name o) 'move-2m-l)
-            (setf *m1* (bank-missionaries bank-right)) 
-            (pop *m1*) (pop *m1*)
-            (setf (bank-missionaries bank-right) *m1*)
+            (setf m-group-one (bank-missionaries bank-right)) 
+            (pop m-group-one) (pop m-group-one)
+            (setf (bank-missionaries bank-right) m-group-one)
 
-            (setf *m2* (bank-missionaries bank-left)) 
-            (push 'm *m2*) (push 'm *m2*)
-            (setf (bank-missionaries bank-left) *m2*)
+            (setf m-group-two (bank-missionaries bank-left)) 
+            (push 'm m-group-two) (push 'm m-group-two)
+            (setf (bank-missionaries bank-left) m-group-two)
             
             (setf (bank-boat bank-right) nil)
             (setf (bank-boat bank-left) 'b)
         )
         ((eq (operator-name o) 'move-2c-r)
-            (setf *c1* (bank-cannibals bank-left)) 
-            (pop *c1*) (pop *c1*)
-            (setf (bank-cannibals bank-left) *c1*)
+            (setf c-group-one (bank-cannibals bank-left)) 
+            (pop c-group-one) (pop c-group-one)
+            (setf (bank-cannibals bank-left) c-group-one)
 
-            (setf *c2* (bank-cannibals bank-right)) 
-            (push 'c *c2*) (push 'c *c2*)
-            (setf (bank-cannibals bank-right) *c2*)
+            (setf c-group-two (bank-cannibals bank-right)) 
+            (push 'c c-group-two) (push 'c c-group-two)
+            (setf (bank-cannibals bank-right) c-group-two)
             
             (setf (bank-boat bank-left) nil)
             (setf (bank-boat bank-right) 'b)
         )
         ((eq (operator-name o) 'move-2c-l)
-            (setf *c1* (bank-cannibals bank-right)) 
-            (pop *c1*) (pop *c1*)
-            (setf (bank-cannibals bank-right) *c1*)
+            (setf c-group-one (bank-cannibals bank-right)) 
+            (pop c-group-one) (pop c-group-one)
+            (setf (bank-cannibals bank-right) c-group-one)
 
-            (setf *c2* (bank-cannibals bank-left)) 
-            (push 'c *c2*) (push 'c *c2*)
-            (setf (bank-cannibals bank-left) *c2*)
+            (setf c-group-two (bank-cannibals bank-left)) 
+            (push 'c c-group-two) (push 'c c-group-two)
+            (setf (bank-cannibals bank-left) c-group-two)
 
             (setf (bank-boat bank-right) nil)
             (setf (bank-boat bank-left) 'b)
         )
         ((eq (operator-name o) 'move-1mc-r)
-            (setf *m1* (bank-missionaries bank-left)) 
-            (pop *m1*) 
-            (setf (bank-missionaries bank-left) *m1*)
-            (setf *m2* (bank-missionaries bank-right)) 
-            (push 'm *m2*) 
-            (setf (bank-missionaries bank-right) *m2*)
+            (setf m-group-one (bank-missionaries bank-left)) 
+            (pop m-group-one) 
+            (setf (bank-missionaries bank-left) m-group-one)
+            (setf m-group-two (bank-missionaries bank-right)) 
+            (push 'm m-group-two) 
+            (setf (bank-missionaries bank-right) m-group-two)
 
-            (setf *c1* (bank-cannibals bank-left)) 
-            (pop *c1*) 
-            (setf (bank-cannibals bank-left) *c1*)
-            (setf *c2* (bank-cannibals bank-right)) 
-            (push 'c *c2*) 
-            (setf (bank-cannibals bank-right) *c2*)
+            (setf c-group-one (bank-cannibals bank-left)) 
+            (pop c-group-one) 
+            (setf (bank-cannibals bank-left) c-group-one)
+            (setf c-group-two (bank-cannibals bank-right)) 
+            (push 'c c-group-two) 
+            (setf (bank-cannibals bank-right) c-group-two)
 
             (setf (bank-boat bank-left) nil)
             (setf (bank-boat bank-right) 'b)
         )
         ((eq (operator-name o) 'move-1mc-l)
-            (setf *m1* (bank-missionaries bank-right)) 
-            (pop *m1*) 
-            (setf (bank-missionaries bank-right) *m1*)
-            (setf *m2* (bank-missionaries bank-left)) 
-            (push 'm *m2*) 
-            (setf (bank-missionaries bank-left) *m2*)
+            (setf m-group-one (bank-missionaries bank-right)) 
+            (pop m-group-one) 
+            (setf (bank-missionaries bank-right) m-group-one)
+            (setf m-group-two (bank-missionaries bank-left)) 
+            (push 'm m-group-two) 
+            (setf (bank-missionaries bank-left) m-group-two)
 
-            (setf *c1* (bank-cannibals bank-right)) 
-            (pop *c1*) 
-            (setf (bank-cannibals bank-right) *c1*)
-            (setf *c2* (bank-cannibals bank-left)) 
-            (push 'c *c2*)
-            (setf (bank-cannibals bank-left) *c2*)
+            (setf c-group-one (bank-cannibals bank-right)) 
+            (pop c-group-one) 
+            (setf (bank-cannibals bank-right) c-group-one)
+            (setf c-group-two (bank-cannibals bank-left)) 
+            (push 'c c-group-two)
+            (setf (bank-cannibals bank-left) c-group-two)
 
             (setf (bank-boat bank-right) nil)
             (setf (bank-boat bank-left) 'b)
         )
         ((eq (operator-name o) 'move-1m-r)
-            (setf *m1* (bank-missionaries bank-left)) 
-            (pop *m1*) 
-            (setf (bank-missionaries bank-left) *m1*)
+            (setf m-group-one (bank-missionaries bank-left)) 
+            (pop m-group-one) 
+            (setf (bank-missionaries bank-left) m-group-one)
 
-            (setf *m2* (bank-missionaries bank-right)) 
-            (push 'm *m2*) 
-            (setf (bank-missionaries bank-right) *m2*)
+            (setf m-group-two (bank-missionaries bank-right)) 
+            (push 'm m-group-two) 
+            (setf (bank-missionaries bank-right) m-group-two)
 
             (setf (bank-boat bank-left) nil)
             (setf (bank-boat bank-right) 'b)
         )
         ((eq (operator-name o) 'move-1m-l)
-            (setf *m1* (bank-missionaries bank-right)) 
-            (pop *m1*) 
-            (setf (bank-missionaries bank-right) *m1*)
+            (setf m-group-one (bank-missionaries bank-right)) 
+            (pop m-group-one) 
+            (setf (bank-missionaries bank-right) m-group-one)
 
-            (setf *m2* (bank-missionaries bank-left)) 
-            (push 'm *m2*) 
-            (setf (bank-missionaries bank-left) *m2*)
+            (setf m-group-two (bank-missionaries bank-left)) 
+            (push 'm m-group-two) 
+            (setf (bank-missionaries bank-left) m-group-two)
 
             (setf (bank-boat bank-right) nil)
             (setf (bank-boat bank-left) 'b)
         )
         ((eq (operator-name o) 'move-1c-r)
-            (setf *c1* (bank-cannibals bank-left)) 
-            (pop *c1*) 
-            (setf (bank-cannibals bank-left) *c1*)
+            (setf c-group-one (bank-cannibals bank-left)) 
+            (pop c-group-one) 
+            (setf (bank-cannibals bank-left) c-group-one)
 
-            (setf *c2* (bank-cannibals bank-right)) 
-            (push 'c *c2*) 
-            (setf (bank-cannibals bank-right) *c2*)
+            (setf c-group-two (bank-cannibals bank-right)) 
+            (push 'c c-group-two) 
+            (setf (bank-cannibals bank-right) c-group-two)
 
             (setf (bank-boat bank-left) nil)
             (setf (bank-boat bank-right) 'b)
         )
         ((eq (operator-name o) 'move-1c-l)
-            (setf *c1* (bank-cannibals bank-right)) 
-            (pop *c1*) 
-            (setf (bank-cannibals bank-right) *c1*)
+            (setf c-group-one (bank-cannibals bank-right)) 
+            (pop c-group-one) 
+            (setf (bank-cannibals bank-right) c-group-one)
 
-            (setf *c2* (bank-cannibals bank-left)) 
-            (push 'c *c2*)
-            (setf (bank-cannibals bank-left) *c2*)
+            (setf c-group-two (bank-cannibals bank-left)) 
+            (push 'c c-group-two)
+            (setf (bank-cannibals bank-left) c-group-two)
 
             (setf (bank-boat bank-right) nil)
             (setf (bank-boat bank-left) 'b)
@@ -532,6 +550,7 @@
     nil
 )
 
+; Outputs solution to problem
 (defmethod display-solution ((n node))
     (cond
         ((rootp n)
