@@ -1,0 +1,163 @@
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.49 (2010-07-07) <http://clisp.cons.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2010
+
+Type :h and hit Enter for context help.
+
+[1]> (load "rbg")
+;; Loading file /Users/dorrondel/Documents/oswego/Fall18-VII/CSc-416/a8/rbg.cl ...
+;; Loaded file /Users/dorrondel/Documents/oswego/Fall18-VII/CSc-416/a8/rbg.cl
+T
+[2]> (ga)
+THE WORLD IS RED
+
+
+
+
+Generation 0 population ...
+
+1     (R R B R R R B R G G B G G G G G R G B B G G R G B)  8
+2     (B B R B B G G B R R G R R R R R R G B G B B R B B)  10
+3     (B G G G R B G B G B G G R R R R G B R G G G R B B)  7
+4     (B G R R B R B R R B G G R R R B B R G G R G G B R)  11
+5     (G G G G B B B B R B R B G R G B R B R B B B G B B)  5
+6     (G G G G B G B G B G G B B B R R R R B R G R B B R)  7
+7     (B G B R R R G G B B G G G R B B G G G R R R G B G)  7
+8     (B G R B R R B B B R R B B B R G G R B R R G B B B)  9
+9     (G G B G B B R B G R B R G B R R R R R R B G R B B)  10
+10    (R G G G G R R B G R R G R R B G B G R R R B R R G)  12
+11    (G G G B G R G B R G R B R R G G R R R B G G R G B)  9
+12    (G R B R G R R G G R G B R R G G B B G G G R R G R)  10
+13    (G G G R R B B R R R G B G G R R G G G B B B G R R)  9
+14    (R G R R G R R B B G G B G B G G G R B G R G B B G)  7
+15    (R G B R G B R G B B R B G R B B G G R B G G R B G)  7
+16    (G G R R G B G G B G G G G G G B G R R G R G B G R)  6
+17    (B R G G B G G G R R B R G G R R R B G R R R R B B)  11
+18    (B B B B G G R B G B B R G B B G R G G B R B B R G)  5
+19    (B R G R B B R R B G B R R B R B G G R B G G R R G)  10
+20    (G G B G B G G G R R G R G B G R B R B R B G B B G)  6
+21    (G R B R G G G G R B B B B G R B G R R R B B G R R)  9
+22    (B G B R B R R G B B R R B G R B G R G R R G G B B)  9
+23    (G G G R G R G B G R R G B G B R R R G B B G R G R)  9
+24    (B R G G R G R R B B R B B R G G R G R B R B R G G)  10
+25    (B B R R R G B B B B B B G B B B B G G B B G B R B)  4
+26    (B B B B G G R B B B G B R R G B G B R G G B R R R)  7
+27    (R G G G R G B R G R G G B B B B R R G G G B R G R)  8
+28    (G G B G R B G G B G G B R R B B R R G G B B B R G)  6
+29    (R B R G G G R B G G G B R B B G G G B G G B R R R)  7
+30    (G R G B G R R R G B R B B B B G G B G G R R G B R)  8
+31    (R B B R G R G G B B B R B G B G B G R B B G G R B)  6
+32    (R B R G G G R G G B G R G R G B B G G R B R B R R)  9
+33    (R G B B R B R B B G R G G G G B G G R B B B R G R)  7
+34    (B B B G R B G R B R B B B R R G R G G G R G B B G)  7
+35    (G G R B B R G B B B R G B R R G B R B R B G B G B)  7
+36    (B B B G G G B G R R B B G B R G R R G B R G G B B)  6
+37    (R R R G G B R B R B G G G R G R B R G R R G B R B)  11
+38    (R G G R B B R R R B R B B R G G G R R B R B G B B)  10
+39    (R G R B G G R B R R B R B G G G B B G B B R B B B)  7
+40    (G G G G G R G B R G R R R G R G R R G R G R R B R)  12
+41    (G B R B B G B B R B B R B G R B R R G R B B B R G)  8
+42    (G G R B B G B B G B R G R G B R G G R G R R G B R)  8
+43    (R B R R R B B R B B R G B G R G G R B R G B G B G)  9
+44    (G G G G B B G G B B B G G B B R R B G G B R B R G)  4
+45    (G R G R R G B G B B G G G B B G R R R G R G B B B)  7
+46    (G G R G G G B G B R B G R G B B G R G G G G G B B)  4
+47    (G R R G G B G R B B B G B R G R B R R R R B B G R)  10
+48    (G G R B G G B G B B G R R B B G B G G R R B G R B)  6
+49    (B R R G G B G G B R B R G G B B R B R R R G G B G)  8
+50    (R B G R B G B R G B R B B R G R R R R G R R R B G)  12
+
+average fitness of population 0 = 8.02
+
+average fitness of population 1 = 11.14
+average fitness of population 2 = 12.94
+average fitness of population 3 = 14.18
+average fitness of population 4 = 15.38
+average fitness of population 5 = 16.58
+average fitness of population 6 = 17.64
+average fitness of population 7 = 18.54
+average fitness of population 8 = 19.56
+average fitness of population 9 = 20.28
+average fitness of population 10 = 21.1
+average fitness of population 11 = 22.4
+average fitness of population 12 = 23.5
+average fitness of population 13 = 23.48
+average fitness of population 14 = 23.94
+average fitness of population 15 = 24.4
+average fitness of population 16 = 24.5
+average fitness of population 17 = 24.48
+average fitness of population 18 = 24.54
+average fitness of population 19 = 24.46
+average fitness of population 20 = 24.42
+
+
+Generation 20 population ...
+
+1     (R R R R R R R R R B R R R R R R R R R R R R R R R)  24
+2     (R R R R R R R R B R R R R R R R R R R R R R R R R)  24
+3     (R R R R R R R R G R R R R R R R R R R R R R R R R)  24
+4     (R R R R R R R R R R R R R R R R R R G R R R R R R)  24
+5     (R R R R R R R R R R R R R R G R R R R R R R R R R)  24
+6     (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+7     (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+8     (R R R R R R R R R R R R R R R R R R R R R R R R B)  24
+9     (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+10    (R R B R R R R R R R R R R R R R R R R R R R R R R)  24
+11    (R R R R R G R R R R R R R R R R R R R R R R R R R)  24
+12    (R R R R R R R R R R R R R R R R R R G R R R R R R)  24
+13    (R R R R R R R R R R R R R R R R R R R R R R R R G)  24
+14    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+15    (R R R R R R R R R R R R G R R R R R R R R R R R R)  24
+16    (R R R R R R R B R R R R R R R R R R R R R R R R R)  24
+17    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+18    (R R R R R R R R R R R G R R R R R R R R R R R R R)  24
+19    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+20    (R G R R R R R R R R R R R R R R R R R R R R R R R)  24
+21    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+22    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+23    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+24    (R R R R R R R R R R R R R R R R R R R R R R R G R)  24
+25    (R R R R R R R R R R R R R R R R R R R B R R R R R)  24
+26    (R R R R R R R R R R R R R R R B R R R R R R R R R)  24
+27    (R R R R R R R R R R R R R R R R R R R R R B R R R)  24
+28    (R R R R R R R R R R R R G R R R R R R R R R R R R)  24
+29    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+30    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+31    (R R R R R R R R R R R R R R R R R B R R R R R R R)  24
+32    (R R R R R R R R R R R G R R R R R R R R R R R R R)  24
+33    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+34    (R R R R R R R R R R R G R R R R R R R R R R R R R)  24
+35    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+36    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+37    (R R R R R R R R R R R R R R R R R G R R R R R R R)  24
+38    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+39    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+40    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+41    (R G R R R R R R R R R R R R R R R R R R R R R R R)  24
+42    (R R R R R R R R R R B R R R R R R R R R R R R R R)  24
+43    (R R R R B R R R R R R R R R R R R R R R R R R R R)  24
+44    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+45    (R R R R R R R R R R R R R R R B R R R R R R R R R)  24
+46    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+47    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+48    (R R R R R R R R R R R R R R R R R R R R R B R R R)  24
+49    (R R R R R R R R R R R R R R B R R R R R R R R R R)  24
+50    (R R R R R R R R R R R R R R R R R R R R R R R R R)  25
+
+average fitness of population 20 = 24.42
+
+NIL
+[3]> (bye)
+Bye.

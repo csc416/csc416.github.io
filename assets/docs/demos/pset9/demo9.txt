@@ -1,0 +1,379 @@
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.49 (2010-07-07) <http://clisp.cons.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2010
+
+Type :h and hit Enter for context help.
+
+[1]> (load "knapsack_ga")
+;; Loading file /Users/dorrondel/Documents/oswego/Fall18-VII/CSc-416/a9/knapsack_ga.cl ...
+;; Loaded file /Users/dorrondel/Documents/oswego/Fall18-VII/CSc-416/a9/knapsack_ga.cl
+T
+[2]> (perform-copies-demo)
+
+
+
+Generation 1 population ...
+
+
+
+
+the sample of individuals ...
+21    (0 0 1 0 1 0 1 0 0 0)  217
+17    (1 1 0 0 1 0 0 0 0 0)  244
+21    (0 0 1 0 1 0 1 0 0 0)  217
+37    (0 1 1 0 0 0 1 1 1 0)  400
+26    (0 1 0 0 0 1 0 0 0 0)  166
+12    (1 1 0 0 0 0 0 0 1 0)  252
+13    (0 0 0 0 0 0 0 1 0 1)  186
+23    (0 1 0 0 1 1 1 0 0 1)  433
+38    (1 0 0 0 1 1 1 0 1 1)  519
+39    (1 0 1 1 1 1 0 1 1 1)  598
+
+the most fit of the sample ...
+39    (1 0 1 1 1 1 0 1 1 1)  598
+
+Selected individual =
+39    (1 0 1 1 1 1 0 1 1 1)  598
+Possibly mutated individual =
+39    (1 0 1 1 1 1 0 1 1 1)  598
+Renumbered individual =
+1     (1 0 1 1 1 1 0 1 1 1)  598
+
+
+
+Generation 1 population ...
+
+1     (1 0 1 1 1 1 0 1 1 1)  598
+
+
+
+the sample of individuals ...
+43    (0 1 1 1 0 1 0 0 0 1)  341
+17    (1 1 0 0 1 0 0 0 0 0)  244
+18    (0 0 1 1 0 1 0 0 1 1)  345
+19    (0 1 1 0 1 0 1 1 0 1)  486
+49    (1 1 0 0 1 0 1 0 1 0)  425
+45    (1 1 0 0 0 0 1 1 0 1)  445
+3     (0 0 1 1 1 0 1 0 0 1)  348
+49    (1 1 0 0 1 0 1 0 1 0)  425
+11    (1 0 1 1 0 0 0 1 1 1)  436
+34    (1 0 1 1 0 1 0 1 0 0)  338
+
+the most fit of the sample ...
+19    (0 1 1 0 1 0 1 1 0 1)  486
+
+Selected individual =
+19    (0 1 1 0 1 0 1 1 0 1)  486
+Possibly mutated individual =
+19    (0 1 1 0 1 0 1 1 0 1)  486
+Renumbered individual =
+2     (0 1 1 0 1 0 1 1 0 1)  486
+
+
+
+Generation 1 population ...
+
+1     (1 0 1 1 1 1 0 1 1 1)  598
+2     (0 1 1 0 1 0 1 1 0 1)  486
+
+
+
+the sample of individuals ...
+48    (0 1 0 1 0 1 0 1 1 0)  382
+46    (0 1 0 1 1 0 0 0 0 0)  199
+25    (0 0 0 0 0 1 0 0 0 0)  83
+43    (0 1 1 1 0 1 0 0 0 1)  341
+31    (1 1 0 0 0 1 1 1 0 0)  434
+18    (0 0 1 1 0 1 0 0 1 1)  345
+29    (0 1 0 0 1 0 0 0 1 1)  343
+7     (0 1 1 1 0 0 0 1 1 0)  343
+37    (0 1 1 0 0 0 1 1 1 0)  400
+18    (0 0 1 1 0 1 0 0 1 1)  345
+
+the most fit of the sample ...
+31    (1 1 0 0 0 1 1 1 0 0)  434
+
+Selected individual =
+31    (1 1 0 0 0 1 1 1 0 0)  434
+Possibly mutated individual =
+31    (1 1 0 0 0 1 1 1 0 0)  434
+Renumbered individual =
+3     (1 1 0 0 0 1 1 1 0 0)  434
+
+
+
+Generation 1 population ...
+
+1     (1 0 1 1 1 1 0 1 1 1)  598
+2     (0 1 1 0 1 0 1 1 0 1)  486
+3     (1 1 0 0 0 1 1 1 0 0)  434
+
+
+
+the sample of individuals ...
+22    (1 1 1 0 0 1 1 0 0 0)  386
+5     (1 1 1 0 0 0 0 1 1 0)  388
+26    (0 1 0 0 0 1 0 0 0 0)  166
+26    (0 1 0 0 0 1 0 0 0 0)  166
+37    (0 1 1 0 0 0 1 1 1 0)  400
+49    (1 1 0 0 1 0 1 0 1 0)  425
+50    (1 1 1 0 1 0 1 1 1 1)  655
+33    (1 0 0 0 0 1 1 1 0 0)  351
+3     (1 1 0 0 0 1 1 1 0 0)  434
+11    (1 0 1 1 0 0 0 1 1 1)  436
+
+the most fit of the sample ...
+50    (1 1 1 0 1 0 1 1 1 1)  655
+
+Selected individual =
+50    (1 1 1 0 1 0 1 1 1 1)  655
+Possibly mutated individual =
+50    (1 1 1 0 1 0 1 0 1 1)  563
+Renumbered individual =
+4     (1 1 1 0 1 0 1 0 1 1)  563
+
+
+
+Generation 1 population ...
+
+1     (1 0 1 1 1 1 0 1 1 1)  598
+2     (0 1 1 0 1 0 1 1 0 1)  486
+3     (1 1 0 0 0 1 1 1 0 0)  434
+4     (1 1 1 0 1 0 1 0 1 1)  563
+
+
+
+the sample of individuals ...
+22    (1 1 1 0 0 1 1 0 0 0)  386
+17    (1 1 0 0 1 0 0 0 0 0)  244
+26    (0 1 0 0 0 1 0 0 0 0)  166
+50    (1 1 1 0 1 0 1 1 1 1)  655
+49    (1 1 0 0 1 0 1 0 1 0)  425
+9     (1 0 0 0 0 0 1 0 0 0)  176
+1     (1 1 1 1 0 0 0 1 1 0)  425
+38    (1 0 0 0 1 1 1 0 1 1)  519
+3     (0 0 1 1 1 0 1 0 0 1)  348
+47    (1 0 1 1 1 0 0 1 1 0)  421
+
+the most fit of the sample ...
+50    (1 1 1 0 1 0 1 1 1 1)  655
+
+Selected individual =
+50    (1 1 1 0 1 0 1 1 1 1)  655
+Possibly mutated individual =
+50    (1 1 1 0 1 0 1 1 1 1)  655
+Renumbered individual =
+5     (1 1 1 0 1 0 1 1 1 1)  655
+
+
+
+Generation 1 population ...
+
+1     (1 0 1 1 1 1 0 1 1 1)  598
+2     (0 1 1 0 1 0 1 1 0 1)  486
+3     (1 1 0 0 0 1 1 1 0 0)  434
+4     (1 1 1 0 1 0 1 0 1 1)  563
+5     (1 1 1 0 1 0 1 1 1 1)  655
+
+
+
+the sample of individuals ...
+15    (1 1 0 1 0 0 1 0 1 0)  383
+25    (0 0 0 0 0 1 0 0 0 0)  83
+8     (1 0 0 0 0 0 0 0 0 0)  82
+23    (0 1 0 0 1 1 1 0 0 1)  433
+36    (0 1 1 1 1 0 0 1 1 0)  422
+12    (1 1 0 0 0 0 0 0 1 0)  252
+24    (0 0 1 1 0 1 1 1 1 1)  531
+17    (1 1 0 0 1 0 0 0 0 0)  244
+5     (1 1 1 0 0 0 0 1 1 0)  388
+4     (0 1 0 1 1 0 0 0 1 0)  286
+
+the most fit of the sample ...
+24    (0 0 1 1 0 1 1 1 1 1)  531
+
+Selected individual =
+24    (0 0 1 1 0 1 1 1 1 1)  531
+Possibly mutated individual =
+24    (0 0 1 1 1 1 1 1 1 1)  610
+Renumbered individual =
+6     (0 0 1 1 1 1 1 1 1 1)  610
+
+
+
+Generation 1 population ...
+
+1     (1 0 1 1 1 1 0 1 1 1)  598
+2     (0 1 1 0 1 0 1 1 0 1)  486
+3     (1 1 0 0 0 1 1 1 0 0)  434
+4     (1 1 1 0 1 0 1 0 1 1)  563
+5     (1 1 1 0 1 0 1 1 1 1)  655
+6     (0 0 1 1 1 1 1 1 1 1)  610
+
+
+
+the sample of individuals ...
+9     (1 0 0 0 0 0 1 0 0 0)  176
+36    (0 1 1 1 1 0 0 1 1 0)  422
+21    (0 0 1 0 1 0 1 0 0 0)  217
+36    (0 1 1 1 1 0 0 1 1 0)  422
+15    (1 1 0 1 0 0 1 0 1 0)  383
+44    (0 0 0 1 1 1 0 1 1 1)  472
+17    (1 1 0 0 1 0 0 0 0 0)  244
+22    (1 1 1 0 0 1 1 0 0 0)  386
+30    (1 0 1 1 1 0 1 1 0 1)  522
+1     (1 0 1 1 1 1 0 1 1 1)  598
+
+the most fit of the sample ...
+1     (1 0 1 1 1 1 0 1 1 1)  598
+
+Selected individual =
+1     (1 0 1 1 1 1 0 1 1 1)  598
+Possibly mutated individual =
+1     (1 0 1 1 1 1 0 1 1 1)  598
+Renumbered individual =
+7     (1 0 1 1 1 1 0 1 1 1)  598
+
+
+
+Generation 1 population ...
+
+1     (1 0 1 1 1 1 0 1 1 1)  598
+2     (0 1 1 0 1 0 1 1 0 1)  486
+3     (1 1 0 0 0 1 1 1 0 0)  434
+4     (1 1 1 0 1 0 1 0 1 1)  563
+5     (1 1 1 0 1 0 1 1 1 1)  655
+6     (0 0 1 1 1 1 1 1 1 1)  610
+7     (1 0 1 1 1 1 0 1 1 1)  598
+
+
+
+the sample of individuals ...
+7     (0 1 1 1 0 0 0 1 1 0)  343
+25    (0 0 0 0 0 1 0 0 0 0)  83
+6     (0 0 0 0 1 1 0 0 0 0)  162
+2     (0 0 1 1 1 0 1 1 0 0)  346
+45    (1 1 0 0 0 0 1 1 0 1)  445
+34    (1 0 1 1 0 1 0 1 0 0)  338
+6     (0 0 0 0 1 1 0 0 0 0)  162
+21    (0 0 1 0 1 0 1 0 0 0)  217
+47    (1 0 1 1 1 0 0 1 1 0)  421
+27    (1 1 0 1 1 0 1 0 1 0)  462
+
+the most fit of the sample ...
+27    (1 1 0 1 1 0 1 0 1 0)  462
+
+Selected individual =
+27    (1 1 0 1 1 0 1 0 1 0)  462
+Possibly mutated individual =
+27    (1 1 0 1 1 0 1 0 1 0)  462
+Renumbered individual =
+8     (1 1 0 1 1 0 1 0 1 0)  462
+
+
+
+Generation 1 population ...
+
+1     (1 0 1 1 1 1 0 1 1 1)  598
+2     (0 1 1 0 1 0 1 1 0 1)  486
+3     (1 1 0 0 0 1 1 1 0 0)  434
+4     (1 1 1 0 1 0 1 0 1 1)  563
+5     (1 1 1 0 1 0 1 1 1 1)  655
+6     (0 0 1 1 1 1 1 1 1 1)  610
+7     (1 0 1 1 1 1 0 1 1 1)  598
+8     (1 1 0 1 1 0 1 0 1 0)  462
+
+
+
+the sample of individuals ...
+18    (0 0 1 1 0 1 0 0 1 1)  345
+9     (1 0 0 0 0 0 1 0 0 0)  176
+29    (0 1 0 0 1 0 0 0 1 1)  343
+41    (1 1 0 0 1 0 0 1 0 0)  336
+17    (1 1 0 0 1 0 0 0 0 0)  244
+10    (0 1 0 0 1 0 1 1 0 1)  442
+37    (0 1 1 0 0 0 1 1 1 0)  400
+7     (0 1 1 1 0 0 0 1 1 0)  343
+23    (0 1 0 0 1 1 1 0 0 1)  433
+11    (1 0 1 1 0 0 0 1 1 1)  436
+
+the most fit of the sample ...
+10    (0 1 0 0 1 0 1 1 0 1)  442
+
+Selected individual =
+10    (0 1 0 0 1 0 1 1 0 1)  442
+Possibly mutated individual =
+10    (0 1 0 0 1 0 1 1 0 1)  442
+Renumbered individual =
+9     (0 1 0 0 1 0 1 1 0 1)  442
+
+
+
+Generation 1 population ...
+
+1     (1 0 1 1 1 1 0 1 1 1)  598
+2     (0 1 1 0 1 0 1 1 0 1)  486
+3     (1 1 0 0 0 1 1 1 0 0)  434
+4     (1 1 1 0 1 0 1 0 1 1)  563
+5     (1 1 1 0 1 0 1 1 1 1)  655
+6     (0 0 1 1 1 1 1 1 1 1)  610
+7     (1 0 1 1 1 1 0 1 1 1)  598
+8     (1 1 0 1 1 0 1 0 1 0)  462
+9     (0 1 0 0 1 0 1 1 0 1)  442
+
+
+
+the sample of individuals ...
+18    (0 0 1 1 0 1 0 0 1 1)  345
+16    (1 1 1 0 0 0 0 1 0 0)  301
+13    (0 0 0 0 0 0 0 1 0 1)  186
+8     (1 0 0 0 0 0 0 0 0 0)  82
+22    (1 1 1 0 0 1 1 0 0 0)  386
+26    (0 1 0 0 0 1 0 0 0 0)  166
+36    (0 1 1 1 1 0 0 1 1 0)  422
+9     (0 1 0 0 1 0 1 1 0 1)  442
+3     (0 0 1 1 1 0 1 0 0 1)  348
+37    (0 1 1 0 0 0 1 1 1 0)  400
+
+the most fit of the sample ...
+9     (0 1 0 0 1 0 1 1 0 1)  442
+
+Selected individual =
+9     (0 1 0 0 1 0 1 1 0 1)  442
+Possibly mutated individual =
+9     (0 1 0 0 1 0 1 0 0 1)  350
+Renumbered individual =
+10    (0 1 0 0 1 0 1 0 0 1)  350
+
+
+
+Generation 1 population ...
+
+1     (1 0 1 1 1 1 0 1 1 1)  598
+2     (0 1 1 0 1 0 1 1 0 1)  486
+3     (1 1 0 0 0 1 1 1 0 0)  434
+4     (1 1 1 0 1 0 1 0 1 1)  563
+5     (1 1 1 0 1 0 1 1 1 1)  655
+6     (0 0 1 1 1 1 1 1 1 1)  610
+7     (1 0 1 1 1 1 0 1 1 1)  598
+8     (1 1 0 1 1 0 1 0 1 0)  462
+9     (0 1 0 0 1 0 1 1 0 1)  442
+10    (0 1 0 0 1 0 1 0 0 1)  350
+
+
+
+NIL
+[3]> (bye)
+Bye.

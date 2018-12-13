@@ -1,0 +1,13 @@
+The classical knapsack problem is a famous computer science problem,
+where you try to find the best combination of items (in terms of price),
+that can fit into a knapsack of a given capacity (where each item has its 
+own weight). When introducing new items into the mix, there will eventually
+be a problem of combinatorial explosion, as all combinations of the items need
+to be checked to find the best orientation, in the brute force approach. Therefore,
+using a genetic algorithm, we circumvent this issue.
+
+A binary string is a list of binary symbols, where 1 represents that index's presence
+in the bag, and a 0 its abscence.
+
+I used a multidimensional list of dotted pairs of (price . weight) to keep track of
+the generated items that can be in the bag, and for the binary string operations to come.
